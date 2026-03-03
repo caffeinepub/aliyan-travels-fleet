@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Fonts ──────────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens ──────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Navy Blue palette: oklch(L C H) */
+    /* Navy Dark  ≈ #0a1f44 */
+    --navy:           0.24 0.075 255;
+    /* Navy Mid   ≈ #0e2d60 */
+    --navy-mid:       0.30 0.09  255;
+    /* Navy Light ≈ #183880 */
+    --navy-light:     0.36 0.10  255;
+
+    /* Gold palette ≈ #c9a84c */
+    --gold:           0.74 0.13  85;
+    /* Gold Light ≈ #e2c476 */
+    --gold-light:     0.83 0.12  85;
+    /* Gold Dark  ≈ #a07828 */
+    --gold-dark:      0.58 0.11  75;
+
+    /* Semantic tokens */
+    --background:           1 0 0;
+    --foreground:           0.18 0.03 255;
+    --card:                 0.99 0 0;
+    --card-foreground:      0.18 0.03 255;
+    --popover:              1 0 0;
+    --popover-foreground:   0.18 0.03 255;
+    --primary:              0.24 0.075 255;
+    --primary-foreground:   1 0 0;
+    --secondary:            0.95 0.01 255;
+    --secondary-foreground: 0.24 0.075 255;
+    --muted:                0.96 0.005 255;
+    --muted-foreground:     0.50 0.02 255;
+    --accent:               0.74 0.13 85;
+    --accent-foreground:    0.18 0.03 255;
+    --destructive:          0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border:               0.90 0.01 255;
+    --input:                0.92 0.01 255;
+    --ring:                 0.74 0.13 85;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.24 0.075 255;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 0.74 0.13 85;
+    --sidebar-primary-foreground: 0.18 0.03 255;
+    --sidebar-accent: 0.30 0.09 255;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.36 0.10 255;
+    --sidebar-ring: 0.74 0.13 85;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.82)), url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ─── Custom Utilities ───────────────────────────────────────────────────── */
+@layer utilities {
+  .text-navy {
+    color: oklch(var(--navy));
+  }
+  .bg-navy {
+    background-color: oklch(var(--navy));
+  }
+  .bg-navy-mid {
+    background-color: oklch(var(--navy-mid));
+  }
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+  .bg-gold-light {
+    background-color: oklch(var(--gold-light));
+  }
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+  .border-navy {
+    border-color: oklch(var(--navy));
+  }
+  /* Touch-friendly tap target */
+  .tap-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
